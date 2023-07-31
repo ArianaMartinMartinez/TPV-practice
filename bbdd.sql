@@ -43,12 +43,12 @@ CREATE TABLE cart(
     size enum('S', 'M', 'L'),
     price double,
     iva_price double,
-    id_product integer,
+    id_burger integer,
+    id_drink integer,
     constraint PK_Cart primary key (id),
-    constraint FK_Cart_Product_Burger foreign key (id_product) references burger(id) on delete cascade on update cascade,
-    constraint FK_Cart_Product_Drink foreign key (id_product) references drink(id) on delete cascade on update cascade
+    constraint FK_Cart_Id_Burger foreign key (id_burger) references burger(id) on delete cascade on update cascade,
+    constraint FK_Cart_Id_Drink foreign key (id_drink) references drink(id) on delete cascade on update cascade
 );
-
 
 -- Fill Database
 insert into ingredient(name) values ("bread");
@@ -116,3 +116,6 @@ insert into burger_ingredient values (4, 6);
 insert into burger_ingredient values (4, 7);
 insert into burger_ingredient values (4, 8);
 insert into burger_ingredient values (4, 12);
+
+insert into cart(quantity, size, price, iva_price, id_burger) values (1, 'S', 5, 6.05, 1);
+insert into cart(quantity, size, price, iva_price, id_drink) values (2, 'M', 2, 2.42, 2);

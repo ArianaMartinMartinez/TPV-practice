@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.tpv.tpvpractice.projections.BurgerProjection;
+import com.tpv.tpvpractice.models.Burger;
 import com.tpv.tpvpractice.services.BurgerService;
 
 @RestController
@@ -15,7 +15,7 @@ public class BurgerController {
     BurgerService burgerService;
 
     @GetMapping()
-    public List<BurgerProjection> getBurgers() {
+    public List<Burger> getBurgers() {
         return burgerService.getBurgers();
     }
 }

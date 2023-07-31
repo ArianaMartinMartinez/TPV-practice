@@ -16,4 +16,8 @@ public class DrinkService {
     public ArrayList<Drink> getDrinks() {
         return (ArrayList<Drink>) drinkRepository.findAll();
     }
+
+    public Drink getDrinkById(Integer id) {
+        return drinkRepository.findById(id).orElse(null);
+    }
 }

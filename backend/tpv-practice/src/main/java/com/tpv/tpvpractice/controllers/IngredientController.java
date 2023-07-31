@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.tpv.tpvpractice.projections.IngredientProjection;
+import com.tpv.tpvpractice.models.Ingredient;
 import com.tpv.tpvpractice.services.IngredientService;
 
 @RestController
@@ -15,7 +15,7 @@ public class IngredientController {
     IngredientService ingredientService;
 
     @GetMapping()
-    public List<IngredientProjection> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredientService.getIngredients();
     }
 }

@@ -23,12 +23,12 @@ public class Cart {
     private Double ivaPrice;
 
     @OneToOne
-    @JoinColumn(name = "id_product", insertable = false, updatable = false)
-    private Burger burger;
+    @JoinColumn(name = "id_burger")
+    private Burger burgers;
 
     @OneToOne
-    @JoinColumn(name = "id_product", insertable = false, updatable = false)
-    private Drink drink;
+    @JoinColumn(name = "id_drink")
+    private Drink drinks;
 
     //GETTERS AND SETTERS
     public Integer getId() {
@@ -63,17 +63,17 @@ public class Cart {
         this.ivaPrice = ivaPrice;
     }
 
-    public Burger getBurger() {
-        return burger;
+    public Burger getBurgers() {
+        return burgers;
     }
-    public void setBurger(Burger burger) {
-        this.burger = burger;
+    public void setBurgers(Burger burgers) {
+        this.burgers = burgers;
     }
 
-    public Drink getDrink() {
-        return drink;
+    public Drink getDrinks() {
+        return drinks;
     }
-    public void setDrink(Drink drink) {
-        this.drink = drink;
+    public void setDrinks(Drink drinks) {
+        this.drinks = drinks;
     }
 }
