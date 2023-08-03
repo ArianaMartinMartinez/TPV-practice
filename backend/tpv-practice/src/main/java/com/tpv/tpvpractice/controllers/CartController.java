@@ -11,6 +11,7 @@ import com.tpv.tpvpractice.models.Cart;
 import com.tpv.tpvpractice.models.Drink;
 import com.tpv.tpvpractice.requests.AddBurgerRequest;
 import com.tpv.tpvpractice.requests.AddDrinkRequest;
+import com.tpv.tpvpractice.requests.ModifyItemRequest;
 import com.tpv.tpvpractice.services.BurgerService;
 import com.tpv.tpvpractice.services.CartService;
 import com.tpv.tpvpractice.services.DrinkService;
@@ -44,7 +45,7 @@ public class CartController {
         cart.setSize(request.getSize());
         cart.setPrice(request.getPrice());
         cart.setIvaPrice(request.getIvaPrice());
-        cart.setBurgers(burger);
+        cart.setBurger(burger);
 
         cartService.addItem(cart);
 
@@ -63,10 +64,22 @@ public class CartController {
         cart.setSize(request.getSize());
         cart.setPrice(request.getPrice());
         cart.setIvaPrice(request.getIvaPrice());
-        cart.setDrinks(drink);
+        cart.setDrink(drink);
 
         cartService.addItem(cart);
 
         return ResponseEntity.ok("Drink added to the cart");
+    }
+
+    @PutMapping("/moreQuantity")
+    public void moreQuantity(@RequestBody ModifyItemRequest request) {
+        Cart cart = cartService.getCartById(request.getIdCart());
+        cartService.moreQuantity(cart);
+    }
+
+    @PutMapping("/lessQuantity")
+    public void lessQuantity(@RequestBody ModifyItemRequest request) {
+        Cart cart = cartService.getCartById(request.getIdCart());
+        cartService.lessQuantity(cart);
     }
 }

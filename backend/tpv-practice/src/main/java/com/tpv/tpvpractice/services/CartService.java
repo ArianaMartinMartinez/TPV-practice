@@ -17,11 +17,21 @@ public class CartService {
         return cartRepository.findAll();
     }
 
-    public Cart getcartById(Integer id) {
+    public Cart getCartById(Integer id) {
         return cartRepository.findById(id).orElse(null);
     }
 
     public Cart addItem(Cart cart) {
         return cartRepository.save(cart);
+    }
+
+    public void moreQuantity(Cart cart) {
+        cart.setQuantity(cart.getQuantity() + 1);
+        cartRepository.save(cart);
+    }
+
+    public void lessQuantity(Cart cart) {
+        cart.setQuantity(cart.getQuantity() - 1);
+        cartRepository.save(cart);
     }
 }
