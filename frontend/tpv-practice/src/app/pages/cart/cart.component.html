@@ -1,0 +1,30 @@
+<div class="row d-flex justify-content-center m-3">
+    <h4 class="text-center">Your order</h4>
+    <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Size</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">IVA Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of cart">
+            <td *ngIf="product.drink == null">{{product.burger.name}}</td>
+            <td *ngIf="product.burger == null">{{product.drink.name}}</td>
+            <td>{{product.size}}</td>
+            <td>
+                <i class="fa-solid fa-minus text-danger"></i> 
+                {{product.quantity}} 
+                <i class="fa-solid fa-plus text-danger"></i>
+            </td>
+            <td>{{product.price}}€</td>
+            <td>{{product.ivaPrice}}€</td>
+            <td><i class="fa-solid fa-trash text-danger"></i></td>
+          </tr>
+        </tbody>
+    </table>
+</div>

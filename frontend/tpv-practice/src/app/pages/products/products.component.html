@@ -1,0 +1,31 @@
+<div class="row d-flex justify-content-center m-3">
+    <h4>Burgers</h4>
+    <div class="card m-2" style="width: 18rem;"*ngFor="let burger of burgers">
+        <img src="{{burger.photo}}" class="card-img-top" height="250" alt="burger">
+        <div class="card-body">
+          <h5 class="card-title">{{burger.name}}</h5>
+          <p class="card-text">{{burger.price}}€</p>
+          <ul class="list-group list-group-horizontal mb-2">
+            <li class="list-group-item">S</li>
+            <li class="list-group-item">M</li>
+            <li class="list-group-item">L</li>
+          </ul>
+          <span class="btn btn-danger">Add to cart</span>
+        </div>
+    </div>
+
+    <h4>Drinks</h4>
+    <div class="card m-2" style="width: 18rem;"*ngFor="let drink of drinks">
+        <img src="{{drink.photo}}" class="card-img-top" height="250" alt="drink">
+        <div class="card-body">
+          <h5 class="card-title">{{drink.name}}</h5>
+          <p class="card-text">{{drink.price}}€</p>
+          <ul class="list-group list-group-horizontal mb-2">
+            <li class="list-group-item">S</li>
+            <li class="list-group-item">M</li>
+            <li class="list-group-item">L</li>
+          </ul>
+          <span class="btn btn-danger">Add to cart</span>
+        </div>
+    </div>
+</div>

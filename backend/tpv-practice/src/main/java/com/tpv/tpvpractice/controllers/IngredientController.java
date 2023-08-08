@@ -14,6 +14,7 @@ public class IngredientController {
     @Autowired
     IngredientService ingredientService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping()
     public List<Ingredient> getIngredients() {
         return ingredientService.getIngredients();

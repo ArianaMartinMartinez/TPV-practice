@@ -28,11 +28,13 @@ public class CartController {
     @Autowired
     DrinkService drinkService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping()
     public List<Cart> getCart() {
         return cartService.getCart();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/add/burger")
     public ResponseEntity<String> addBurgerToTheCart(@RequestBody AddBurgerRequest request) {
         Burger burger = burgerService.getBurgerById(request.getIdBurger());
@@ -52,6 +54,7 @@ public class CartController {
         return ResponseEntity.ok("Burger added to the cart");
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/add/drink")
     public ResponseEntity<String> addDrinkToTheCart(@RequestBody AddDrinkRequest request) {
         Drink drink = drinkService.getDrinkById(request.getIdDrink());
@@ -71,12 +74,14 @@ public class CartController {
         return ResponseEntity.ok("Drink added to the cart");
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/moreQuantity")
     public void moreQuantity(@RequestBody ModifyItemRequest request) {
         Cart cart = cartService.getCartById(request.getIdCart());
         cartService.moreQuantity(cart);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/lessQuantity")
     public void lessQuantity(@RequestBody ModifyItemRequest request) {
         Cart cart = cartService.getCartById(request.getIdCart());

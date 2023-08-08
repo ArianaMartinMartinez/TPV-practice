@@ -14,6 +14,7 @@ public class DrinkController {
     @Autowired
     DrinkService drinkService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping()
     public ArrayList<Drink> getDrinks() {
         return drinkService.getDrinks();

@@ -14,6 +14,7 @@ public class BurgerController {
     @Autowired
     BurgerService burgerService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping()
     public List<Burger> getBurgers() {
         return burgerService.getBurgers();
