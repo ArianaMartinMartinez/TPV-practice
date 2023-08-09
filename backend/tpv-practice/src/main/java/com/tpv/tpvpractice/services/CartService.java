@@ -26,12 +26,16 @@ public class CartService {
     }
 
     public void moreQuantity(Cart cart) {
+        Double total = Math.floor(((cart.getQuantity()+1) * cart.getIvaPrice()) * 100) / 100;
         cart.setQuantity(cart.getQuantity() + 1);
+        cart.setTotal(total);
         cartRepository.save(cart);
     }
 
     public void lessQuantity(Cart cart) {
+        Double total = Math.floor(((cart.getQuantity()-1) * cart.getIvaPrice()) * 100) / 100;
         cart.setQuantity(cart.getQuantity() - 1);
+        cart.setTotal(total);
         cartRepository.save(cart);
     }
 }

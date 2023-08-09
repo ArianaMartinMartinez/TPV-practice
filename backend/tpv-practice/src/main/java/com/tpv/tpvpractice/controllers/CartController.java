@@ -42,11 +42,13 @@ public class CartController {
             return ResponseEntity.badRequest().body("The burger does not exist");
         }
 
+        Double total = request.getIvaPrice() * request.getQuantity();
         Cart cart = new Cart();
         cart.setQuantity(request.getQuantity());
         cart.setSize(request.getSize());
         cart.setPrice(request.getPrice());
         cart.setIvaPrice(request.getIvaPrice());
+        cart.setTotal(total);
         cart.setBurger(burger);
 
         cartService.addItem(cart);
@@ -62,11 +64,13 @@ public class CartController {
             return ResponseEntity.badRequest().body("The drink does not exist");
         }
 
+        Double total = request.getIvaPrice() * request.getQuantity();
         Cart cart = new Cart();
         cart.setQuantity(request.getQuantity());
         cart.setSize(request.getSize());
         cart.setPrice(request.getPrice());
         cart.setIvaPrice(request.getIvaPrice());
+        cart.setTotal(total);
         cart.setDrink(drink);
 
         cartService.addItem(cart);

@@ -22,6 +22,9 @@ public class Cart {
     @Column(name = "iva_price")
     private Double ivaPrice;
 
+    @Column(name = "total")
+    private Double total;
+
     @ManyToOne
     @JoinColumn(name = "id_burger")
     private Burger burger;
@@ -61,6 +64,13 @@ public class Cart {
     }
     public void setIvaPrice(Double ivaPrice) {
         this.ivaPrice = ivaPrice;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
     public Burger getBurger() {

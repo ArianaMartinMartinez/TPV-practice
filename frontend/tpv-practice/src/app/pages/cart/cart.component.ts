@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
   cart: Cart[] = [];
+  totalPrice!: number;
 
   constructor(
     private _cartService: CartService,
@@ -26,7 +27,35 @@ export class CartComponent implements OnInit {
       },
       error: (error) => {
         console.error(error);
+      },
+      complete: () => {
+        this.calculateTotalPrice();
       }
     });
+  }
+  
+  public lessQuantity(id: number) {
+    const body = { idCart: id, };
+
+    this._cartService.putLessQuantity(body).subscribe({
+      next: () => { this.ngOnInit() },
+      error: (error) => { console.error(error); }
+    });
+  }
+
+  public moreQuantity(id: number) {
+    const body = { idCart: id, };
+
+    this._cartService.putMoreQuantity(body).subscribe({
+      next: () => { this.ngOnInit() },
+      error: (error) => { console.error(error); }
+    });
+  }
+
+  private calculateTotalPrice() {
+    this.totalPrice = 0;
+    this.cart.forEach((product) => {
+      this.totalPrice = Math.floor((this.totalPrice + product.total) * 100) / 100;
+    })
   }
 }

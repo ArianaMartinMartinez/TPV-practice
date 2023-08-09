@@ -7,6 +7,7 @@ export class Cart {
     size!: string;
     price!: number;
     ivaPrice!: number;
+    total!: number;
     burger!: Burger;
     drink!: Drink;
 }
