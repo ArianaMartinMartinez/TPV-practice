@@ -9,12 +9,12 @@ import com.tpv.tpvpractice.models.Drink;
 import com.tpv.tpvpractice.services.DrinkService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/drinks")
 public class DrinkController {
     @Autowired
     DrinkService drinkService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping()
     public ArrayList<Drink> getDrinks() {
         return drinkService.getDrinks();
