@@ -11,7 +11,7 @@ import com.tpv.tpvpractice.models.Cart;
 import com.tpv.tpvpractice.models.Drink;
 import com.tpv.tpvpractice.requests.AddBurgerRequest;
 import com.tpv.tpvpractice.requests.AddDrinkRequest;
-import com.tpv.tpvpractice.requests.ModifyItemRequest;
+import com.tpv.tpvpractice.requests.CartRequest;
 import com.tpv.tpvpractice.services.BurgerService;
 import com.tpv.tpvpractice.services.CartService;
 import com.tpv.tpvpractice.services.DrinkService;
@@ -29,11 +29,13 @@ public class CartController {
     @Autowired
     DrinkService drinkService;
 
+    //GET
     @GetMapping()
     public List<Cart> getCart() {
         return cartService.getCart();
     }
 
+    //POST
     @PostMapping("/add/burger")
     public ResponseEntity<String> addBurgerToTheCart(@RequestBody AddBurgerRequest request) {
         Burger burger = burgerService.getBurgerById(request.getIdBurger());
@@ -76,15 +78,27 @@ public class CartController {
         return ResponseEntity.ok("Drink added to the cart");
     }
 
+    //PUT
     @PutMapping("/moreQuantity")
-    public void moreQuantity(@RequestBody ModifyItemRequest request) {
+    public void moreQuantity(@RequestBody CartRequest request) {
         Cart cart = cartService.getCartById(request.getIdCart());
         cartService.moreQuantity(cart);
     }
 
     @PutMapping("/lessQuantity")
-    public void lessQuantity(@RequestBody ModifyItemRequest request) {
+    public void lessQuantity(@RequestBody CartRequest request) {
         Cart cart = cartService.getCartById(request.getIdCart());
         cartService.lessQuantity(cart);
+    }
+
+    //DELETE
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Integer id) {
+        cartService.deleteById(id);
+    }
+
+    @DeleteMapping("/deleteAll")
+    public void deleteAll() {
+        cartService.deleteAll();
     }
 }

@@ -33,4 +33,13 @@ export class CartService {
   public putLessQuantity(body: Object): Observable<any> {
     return this._apiService.put(`${this._endpointCart}/lessQuantity`, body);
   }
+
+  //DELETE
+  public deleteItem(id: number): Observable<any> {
+    return this._apiService.delete(`${this._endpointCart}/${id}`);
+  }
+
+  public deleteAll(): Observable<any> {
+    return this._apiService.delete(`${this._endpointCart}/deleteAll`);
+  }
 }

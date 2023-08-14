@@ -13,6 +13,7 @@ public class CartService {
     @Autowired
     CartRepository cartRepository;
 
+    //GET
     public List<Cart> getCart() {
         return cartRepository.findAll();
     }
@@ -21,10 +22,12 @@ public class CartService {
         return cartRepository.findById(id).orElse(null);
     }
 
+    //POST
     public Cart addItem(Cart cart) {
         return cartRepository.save(cart);
     }
 
+    //PUT
     public void moreQuantity(Cart cart) {
         Double total = Math.floor(((cart.getQuantity()+1) * cart.getIvaPrice()) * 100) / 100;
         cart.setQuantity(cart.getQuantity() + 1);
@@ -37,5 +40,14 @@ public class CartService {
         cart.setQuantity(cart.getQuantity() - 1);
         cart.setTotal(total);
         cartRepository.save(cart);
+    }
+
+    //DELETE
+    public void deleteById(Integer id) {
+        cartRepository.deleteById(id);
+    }
+
+    public void deleteAll() {
+        cartRepository.deleteAll();
     }
 }

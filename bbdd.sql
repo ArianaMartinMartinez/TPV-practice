@@ -43,6 +43,7 @@ CREATE TABLE cart(
     size enum('S', 'M', 'L'),
     price double,
     iva_price double,
+    total double,
     id_burger integer,
     id_drink integer,
     constraint PK_Cart primary key (id),
@@ -117,5 +118,6 @@ insert into burger_ingredient values (4, 7);
 insert into burger_ingredient values (4, 8);
 insert into burger_ingredient values (4, 12);
 
-insert into cart(quantity, size, price, iva_price, id_burger) values (1, 'S', 5, 6.05, 1);
-insert into cart(quantity, size, price, iva_price, id_drink) values (2, 'M', 2, 2.42, 2);
+insert into cart(quantity, size, price, iva_price, total, id_burger) values (1, 'S', 5, 6.05, 6.05, 1);
+insert into cart(quantity, size, price, iva_price, total, id_drink) values (2, 'M', 1.65, 1.99, 3.98, 2);
+insert into cart(quantity, size, price, iva_price, total, id_burger) values (3, 'S', 7, 8.47, 25.41, 2);

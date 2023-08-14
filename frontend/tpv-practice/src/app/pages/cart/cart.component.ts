@@ -58,4 +58,18 @@ export class CartComponent implements OnInit {
       this.totalPrice = Math.floor((this.totalPrice + product.total) * 100) / 100;
     })
   }
+
+  deleteItem(id: number) {
+    this._cartService.deleteItem(id).subscribe({
+      error: (error) => { console.error(error); },
+      complete: () => { this.ngOnInit(); }
+    });
+  }
+
+  deleteAll() {
+    this._cartService.deleteAll().subscribe({
+      error: (error) => { console.error(error); },
+      complete: () => { this.ngOnInit(); }
+    });
+  }
 }

@@ -32,14 +32,14 @@
             <td>{{product.price}}€</td>
             <td>{{product.ivaPrice}}€</td>
             <td>{{product.total}}€</td>
-            <td><i class="fa-solid fa-trash text-danger"></i></td>
+            <td><i class="fa-solid fa-trash text-danger" (click)="deleteItem(product.id)"></i></td>
           </tr>
           <tr>
             <td colspan="4"></td>
             <th>Total price:</th>
             <td class="text-danger">{{totalPrice}}€</td>
             <td>
-              <button type="button" class="btn btn-danger">Buy</button>
+              <button type="button" class="btn btn-danger" (click)="deleteAll()">Buy</button>
             </td>
           </tr>
         </tbody>

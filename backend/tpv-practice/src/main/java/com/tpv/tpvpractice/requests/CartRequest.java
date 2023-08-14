@@ -1,6 +1,6 @@
 package com.tpv.tpvpractice.requests;
 
-public class ModifyItemRequest {
+public class CartRequest {
     private Integer idCart;
 
     //GETTERS AND SETTERS
