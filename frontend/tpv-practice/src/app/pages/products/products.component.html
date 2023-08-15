@@ -6,11 +6,11 @@
           <h5 class="card-title">{{burger.name}}</h5>
           <p class="card-text">{{burger.price}}€</p>
           <ul class="list-group list-group-horizontal mb-2">
-            <li class="list-group-item">S</li>
-            <li class="list-group-item">M</li>
-            <li class="list-group-item">L</li>
+            <li class="list-group-item" (click)="setSize('S')">S</li>
+            <li class="list-group-item" (click)="setSize('M')">M</li>
+            <li class="list-group-item" (click)="setSize('L')">L</li>
           </ul>
-          <span class="btn btn-danger">Add to cart</span>
+          <span class="btn btn-danger" (click)="addBurgerToCart(burger.id)">Add to cart</span>
         </div>
     </div>
 
@@ -21,11 +21,11 @@
           <h5 class="card-title">{{drink.name}}</h5>
           <p class="card-text">{{drink.price}}€</p>
           <ul class="list-group list-group-horizontal mb-2">
-            <li class="list-group-item">S</li>
-            <li class="list-group-item">M</li>
-            <li class="list-group-item">L</li>
+            <li class="list-group-item" (click)="setSize('S')">S</li>
+            <li class="list-group-item" (click)="setSize('M')">M</li>
+            <li class="list-group-item" (click)="setSize('L')">L</li>
           </ul>
-          <span class="btn btn-danger">Add to cart</span>
+          <span class="btn btn-danger" (click)="addDrinkToCart(drink.id)">Add to cart</span>
         </div>
     </div>
 </div>

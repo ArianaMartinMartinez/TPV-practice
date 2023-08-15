@@ -15,4 +15,8 @@ export class DrinkService {
   public get(): Observable<any> {
     return this._apiService.get(this._endpointDrink);
   }
+
+  public getById(id: number): Observable<any> {
+    return this._apiService.get(`${this._endpointDrink}/${id}`);
+  }
 }

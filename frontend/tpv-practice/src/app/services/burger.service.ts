@@ -15,4 +15,8 @@ export class BurgerService {
   public get(): Observable<any> {
     return this._apiService.get(this._endpointBurger);
   }
+
+  public getById(id: number): Observable<any> {
+    return this._apiService.get(`${this._endpointBurger}/${id}`);
+  }
 }

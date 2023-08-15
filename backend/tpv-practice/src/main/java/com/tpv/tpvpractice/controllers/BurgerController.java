@@ -19,4 +19,9 @@ public class BurgerController {
     public List<Burger> getBurgers() {
         return burgerService.getBurgers();
     }
+
+    @GetMapping("/{id}")
+    public Burger getBurgerById(@PathVariable Integer id) {
+        return burgerService.getBurgerById(id);
+    }
 }
